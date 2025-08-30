@@ -3,217 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stat page</title>
+    <title>선수 스탯 비교</title>
     <link rel="stylesheet" href="stat.css">
 </head>
 <body>
-    <!--제목이나 주제같은 텍스트에는 h태그가 들어간다. h1~h6순으로 크가가 작아진다. 숫자가 작을수록 크기가 큼.-->
-    <!--<br>은 줄바꿈 문ㅁ자로 중간에 써주면 문장의 줄을 바꿔준다.-->
-    <h1>스탯 페이지 입니다. 이 페이지에서는 선수의 스탯을 확인할 수 있고, 선수들 간의 스탯을 비교할 수 있습니다.</h1>
-    <br><h3>지금부터 한번 개발을 시작하겠습니다.</h3>
-    <br><h5>일단 자고 일어나서...</h5>
+    <div class="container">
+        <header>
+            <h1>프로스탯 / 선수 비교</h1>
+            <div class="filters">
+                <select id="league-select">
+                    <option value="LCK">LCK</option>
+                </select>
+                <select id="year-select">
+                    <option value="2025">2025</option>
+                </select>
+                <select id="round-select">
+                    <option value="Rounds 1-2">Rounds 1-2</option>
+                </select>
+            </div>
+        </header>
 
-    <!--문단을 나타내는 태그. 하나의 p태그는 하나의 문단을 의미한다. p태그를 쓰면 자동으로 줄바꿈이 적용된다.-->
-    <!--&nbsp는 공백 문자로 사용했을 경우 띄어쓰기를 해준다.-->
-    <p>프론트엔드 공부도&nbsp다시 한번 복습하고 시작해보죠...</p>
-    <p>힘들군요... 개발 공부만 4개라니...</p>
+        <main>
+            <div class="comparison-selector">
+                <div class="player-select-container">
+                    <select id="player1-select" class="player-select">
+                        <option value="">선수 이름을 검색하세요</option>
+                    </select>
+                </div>
+                <div class="vs">VS</div>
+                <div class="player-select-container">
+                    <select id="player2-select" class="player-select">
+                        <option value="">선수 이름을 검색하세요</option>
+                    </select>
+                </div>
+            </div>
 
-    <!--a태그는 링크를 정의하는 태그이다. href 속성을 사용해서 링크 대상을 지정한다. 오류가 났을 경우, herf과 href과 스펠링을 잘못쓰진 않았는지 검토하자.-->
-    <!--기본값인 _self로써 링크를 클릭하면 현재 열려있는 창이나 탭에서 새로운 페이지가 열린다.-->
-    <!--웹사이트 내의 다른 페이지로 이동할때 주로 사용된다.-->
-    <a href="https://www.naver.com/">네이버 바로가기</a><br>
-    <!--_blank 속성을 사용하였으므로 새 창이나 새 탭에서 링크를 연다.-->
-    <a href="https://www.youtube.com/" target="_blank">유튜브 바로가기</a>
-
-    <!--Block 요소: 수평으로 다른 요소들을 함께 배치할 수 없음. 따라서 자동으로 줄 바꿈이 발생한다. width, height등의 속성을 적용할 수 있다.-->
-    <!--<div>, <p>, <h1>~<h6>, <ul>, <ol>, <li>, <section>, <article>, <table>-->
-    <!--Inline 요소: 콘텐츠 만큼의 너비를 차지한다. 줄 바꿈없이 옆에 나란히 표시된다. width, height 속성을 직접 지정할 수 없다.-->
-    <!--<span>, <a>, <strong>, <em>, <img>, <label>-->
-
-    <!--HTML 리스트: 연관 있는 항목들을 나열한 것-->
-    <!--<ul></ul>: 순서가 없는 목록-->
-    <!--숫자가 아닌 태그 방식으로 나타내어 진다. 요약하자면 땡땡이 기호?-->
-    <ul>
-        <li>사과</li>
-        <li>배</li>
-        <li>오렌지</li>
-    </ul>
-    <!--<ol></ol>: 순서가 있는 목록-->
-    <!--숫자로 순서가 나타내어 진다.-->
-    <ol>
-        <li>가</li>
-        <li>나</li>
-        <li>다</li>
-    </ol>
-
-    <!--image 태그-->
-    <!--이미지 폴더를 만들어서 이미지 파일을 넣어두고 그 파일의 경로를 불러오는 식으로의 코드를 작성한다.-->
-    <!--하위 폴더에 있는 이미지: src="/images/spongBob.jpg"-->
-    <!--상위 폴더에 있는 이미지: src="../images/spongBob.jpg"-->
-    <!--
-    1. /: 최상의 경로
-    2. ./: 현재 디렉토리를 의미. 생략 가능
-    3. ../: 현재 위치의 상위 디렉토리
-    4. ../../: 두 단계 상위 디렉토리-->
-    <!--절대 경로: 이미지가 저장된 웹 서버의 전체 URL을 사용, ex)src = “https://example.com/images/photo.jpg” => 웹사이트의 이미지-->
-
-    <!--테이블-->
-    <!--row(행)과 column(열) 형태로 정리한 것-->
-    <!--<caption>: 제목, 
-        <tr>: table row(테이블의 행), 
-        <th>: table header(테이블의 열 또는 행의 제목, 굵은 글씨와 가운데 정렬), 
-        <td>: table data: 테이블 데이터(테이블의 일반적인 셀 내용, 일반 텍스트로 구성)-->
-    <table>
-        <caption>
-            <학생 성적표>
-        </caption>
-        <tr>
-            <th>이름</th>
-            <th>국어</th>
-            <th>영어</th>
-            <th>수학</th>
-        </tr>
-        <tr>
-            <td>스폰지밥</td>
-            <td>85</td>
-            <td>90</td>
-            <td>100</td>
-        </tr>
-        <tr>
-            <td>핑핑이</td>
-            <td>92</td>
-            <td>87</td>
-            <td>100</td>
-        </tr>
-    </table>
-
-    <p>///////////////////////////////////////////////////////////////////////////////////////////////////</p>
-
-    <!--입력 양식 태그 종류-->
-    
-    <!--<form>: 사용자로부터 데이터를 입력받기 위한 양식 시작 태그-->
-    form<br>
-    <form action="/submit" method="POST"><br>
-    
-    <!--<input>: 다양한 입력 필드를 생성. type 속성에 따라 다르게 사용-->
-    input<br>
-    <input type="text" name="username"><br>
-
-    <!--<textarea>: 여러 줄의 텍스트를 입력받을 때 사용-->
-    textarea<br>
-    <textarea name="message" rows="4" cols="50"></textarea><br>
-
-    <!--<select>: 드롭다운 리스트를 생성-->
-    select<br>
-    <select name="country"><option value="Korea">대한민국</option><option value="Korea">미국</option></select><br>
-
-    <!--<option>: <select> 태그 내에서 드롭다운 항목을 정의-->
-    option<br>
-    <option value="Korea">대한민국</option><br>
-
-    <!--<button>: 폼 제출, 리셋, 사용자 지정 액션을 처리하는 버튼을 만든다-->
-    button<br>
-    <button type="submit">제출</button><br>
-
-    <!--<label>: 입력 필드에 대한 설명을 제공. <input> 태그와 연결된다-->
-    label<br>
-    <label for="username">사용자 이름:</label><input type="text" id="username"><br>
-
-    <!--<fieldset>: 폼 그룹을 묶을 때 사용. 폼 내의 항목들을 그룹화하여 가독성을 높인다-->
-    fieldset<br>
-    <fieldset><legend>개인 정보</legend><input type="text" name="username"></fieldset><br>
-
-    <!--<legend>: <fieldset> 내에서 제목을 제공하는 태그-->
-    legend<br>
-    <fieldset><legend>주소 정보</legend><input type="text" name="address"></fieldset><br>
-
-    <p>///////////////////////////////////////////////////////////////////////////////////////////////////</p>
-
-    <!--input 태그-->
-    <!--사용자가 데이터를 입력할 수 있게 하는 HTML 요소-->
-
-    <!--text: 일반 텍스트 입력. 기본값-->
-    text<br>
-    <input type="text" name="username"><br>
-
-    <!--password: 비밀번호 입력 (입력 값이 가려짐)-->
-    password<br>
-    <input type="password" name="password"><br>
-
-    <!--email: 이메일 주소 입력 (이메일 형식 검증)-->
-    email<br>
-    <input type="email" name="email"><br>
-
-    <!--number: 숫자 입력. 입력할 수 있는 범위 설정 갖능-->
-    number<br>
-    <input type="number" name="age" min="18" max="100"><br>
-
-    <!--checkbox: 체크박스. 여러개 선택 가능-->
-    checkbox<br>
-    <input type="checkbox" name="subscribe" value="newsletter"><br>
-
-    <!--radio: 라디오 버튼. 한 항목만 선택 가능-->
-    radio<br>
-    <input type="radio" name="gender" value="male"><br>
-
-    <!--date: 날짜 입력 (달력 형태)-->
-    date<br>
-    <input type="date" name="birthday"><br>
-
-    <!--submit: 폼 제출 버튼-->
-    submit<br>
-    <input type="submit" value="전송"><br>
-
-    <p>///////////////////////////////////////////////////////////////////////////////////////////////////</p>    
-
-    <!--회원가입 폼 만들기-->
-    <form>
-        <fieldset>
-            <legend>회원가입</legend>
-        </fieldset>
-    </form>
-
-    <!--비밀번호 입력-->
-    <label for="name">이름:</label>
-    <input type="text" id="name" />
-    <br><br>
-
-    <!--성별 선택 (라디오 버튼)-->>
-    <label>성별:</label>
-    <input type="radio" id="male" name="gender" value="male" />
-    <label for="male">남성</label>
-    <input type="radio" id="female" name="gender" value="male" />
-    <label for="female">여성</label>
-    <br><br>
-
-    <!--관심 분야 선택 (체크박스)-->
-    <label>관심 분야:</label>
-    <input type="checkbox" id="html" value="HTML" />
-    <label for="html">HTML</label>
-    <input type="checkbox" id="css" value="CSS" />
-    <label for="css">CSS</label>
-    <input type="checkbox" id="javascript" value="javascript" />
-    <label for="javascript">JavaScript</label>
-    <br><br>
-
-    <!--국가 선택-->
-    <label for="country">국가:</label>
-    <select id="country">
-        <option value="Korea">대한민국</option>
-        <option value="USA">미국</option>
-        <option value="JAPAN">일본</option>
-    </select>
-    <br><br>
-
-    <!--추가 정보 입력 (텍스트 영역)-->
-    <label for="message">추가 정보:</label>
-    <br>
-    <textarea id="message"></textarea>
-    <br><br>
-
-    <!--제출 버튽-->
-    <button type="submit">가입하기</button>
-    <button type="reset">초기화</button>
+            <div class="stats-table-container">
+                <table id="stats-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>클럽</th>
+                            <th>선수</th>
+                            <th>포지션</th>
+                            <th>게임수</th>
+                            <th>승리</th>
+                            <th>패배</th>
+                            <th>승률</th>
+                            <th>KDA</th>
+                            <th>킬</th>
+                            <th>데스</th>
+                            <th>어시스트</th>
+                            <th>첫킬</th>
+                            <th>첫포탑</th>
+                            <th>DPM</th>
+                            <th>DTPM</th>
+                            <th>GPM</th>
+                            <th>CSPM</th>
+                            <th>DPGR</th>
+                            <th>와드</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stats-body">
+                        <tr class="placeholder-row">
+                            <td colspan="20">선택된 항목에 대한 데이터가 없습니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
 
     <script src="stat.js"></script>
 </body>
