@@ -24,6 +24,13 @@
         </header>
 
         <main>
+            <!-- 선수 카드 표시 영역 (변경 없음) -->
+            <div class="player-cards-container">
+                <div id="player1-card" class="player-card"></div>
+                <div id="player2-card" class="player-card"></div>
+            </div>
+
+            <!-- 선수 선택 영역 (변경 없음) -->
             <div class="comparison-selector">
                 <div class="player-select-container">
                     <select id="player1-select" class="player-select">
@@ -38,38 +45,9 @@
                 </div>
             </div>
 
-            <div class="stats-table-container">
-                <table id="stats-table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>클럽</th>
-                            <th>선수</th>
-                            <th>포지션</th>
-                            <th>게임수</th>
-                            <th>승리</th>
-                            <th>패배</th>
-                            <th>승률</th>
-                            <th>KDA</th>
-                            <th>킬</th>
-                            <th>데스</th>
-                            <th>어시스트</th>
-                            <th>첫킬</th>
-                            <th>첫포탑</th>
-                            <th>DPM</th>
-                            <th>DTPM</th>
-                            <th>GPM</th>
-                            <th>CSPM</th>
-                            <th>DPGR</th>
-                            <th>와드</th>
-                        </tr>
-                    </thead>
-                    <tbody id="stats-body">
-                        <tr class="placeholder-row">
-                            <td colspan="20">선택된 항목에 대한 데이터가 없습니다.</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- 스탯 테이블을 새로운 세로 비교 영역으로 교체 -->
+            <div id="stats-container" class="stats-container">
+                <!-- 스탯 데이터가 여기에 동적으로 생성됩니다. -->
             </div>
         </main>
     </div>
@@ -77,3 +55,4 @@
     <script src="stat.js"></script>
 </body>
 </html>
+
